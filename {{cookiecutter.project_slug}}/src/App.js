@@ -9,8 +9,6 @@ const loading = () => <div className="animated fadeIn pt-3 text-center">Loading.
 const DefaultLayout = React.lazy(() => import('./containers/DefaultLayout'));
 
 //@InertModuleDeclaration
-const Login = React.lazy(() => import('./features/EmailAuth/Login'));
-const Register = React.lazy(() => import('./features/EmailAuth/Register'));
 
 
 class App extends Component {
@@ -25,8 +23,7 @@ class App extends Component {
             <Switch>
               <Route path="/" name="Home" render={props => <DefaultLayout {...props}/>} />
               {/*InsertModuleRouting*/}
-              <Route exact path="/login" name="Login Page" render={props => <Login {...props}/>} />
-              <Route exact path="/register" name="Register Page" render={props => <Register {...props}/>} />
+             
               
             </Switch>
           </React.Suspense>
