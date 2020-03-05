@@ -1,6 +1,6 @@
-# Crowdbotics Django Scaffold
+# Crowdbotics React Scaffold
 
-This is the Crowdbotics Django cookiecutter template used for our Django
+This is the Crowdbotics React cookiecutter template used for our Web React/Django
 projects.
 
 It includes:
