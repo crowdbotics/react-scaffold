@@ -21,6 +21,7 @@ from drf_yasg import openapi
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 
+
 urlpatterns = [
     #path("", include("home.urls")),
     path("accounts/", include("allauth.urls")),
@@ -42,7 +43,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="{{cookiecutter.project_name}} API",
         default_version="v1",
-        description="API documentation for {{cookiecutter.project_name}} App",
+                description="API documentation for {{cookiecutter.project_name}} App",
     ),
     public=True,
     permission_classes=(permissions.IsAuthenticated,),
@@ -53,6 +54,7 @@ urlpatterns += [
 ]
 
 urlpatterns += [path('', TemplateView.as_view(template_name='index.html'))]
+
 urlpatterns += [
         re_path(r"^(?:.*)/?$",
                 TemplateView.as_view(template_name='index.html'))

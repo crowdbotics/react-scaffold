@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { AppAsideToggler, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
 import logo from '../../assets/img/brand/logo.png'
-import sygnet from '../../assets/img/brand/logo.png'
+import sygnet from '../../assets/img/brand/sygnet.png'
 
 const propTypes = {
   children: PropTypes.node,
@@ -23,26 +23,20 @@ class DefaultHeader extends Component {
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
         <AppNavbarBrand
-          full={{ src: logo, width: 89, height: 25, alt: 'CoreUI Logo' }}
-          minimized={{ src: sygnet, width: 30, height: 30, alt: 'CoreUI Logo' }}
+          full={{ src: logo, width: '100%', height: '100%', alt: 'Crowdbotics' }}
+          minimized={{ src: sygnet, width: 25, height: 25, alt: 'Crowdbotics' }}
         />
-        <AppSidebarToggler className="d-md-down-none" display="lg" />
+        <AppSidebarToggler className="d-md-down-none" display="lg" />  
 
-        <Nav className="d-md-down-none" navbar>
-          <NavItem className="px-3">
-            <NavLink to="/" className="nav-link" >Home</NavLink>
-          </NavItem>
-        </Nav>
         <Nav className="ml-auto" navbar>
           
           <UncontrolledDropdown nav direction="down">
             <DropdownToggle nav>
-              <img src={'../../assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+            <i className="icon-user" style={{width: 100, height: '100%'}}></i>
             </DropdownToggle>
             <DropdownMenu right>
               <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
-              
-              <DropdownItem><i className="fa fa-user"></i> Profile</DropdownItem>
+          
              
               <DropdownItem onClick={e => this.props.onLogout(e)}><i className="fa fa-lock"></i> Logout</DropdownItem>
             </DropdownMenu>

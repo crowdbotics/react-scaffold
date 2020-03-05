@@ -19,12 +19,25 @@ import {
 import navigation from '../../_nav';
 // routes config
 import routes from '../../routes';
+import {connect} from 'react-redux';
 
 const DefaultAside = React.lazy(() => import('./DefaultAside'));
 const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
 const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
 
 class DefaultLayout extends Component {
+  async componentDidMount() {
+    try {
+      console.log("loggedIn", this.props.loggedIn)
+      if (this.props.loggedIn) {
+        this.props.history.push(`/login`);
+      }
+
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
@@ -89,4 +102,13 @@ class DefaultLayout extends Component {
   }
 }
 
-export default DefaultLayout;
+const mapStateToProps = state => ({
+  loggedIn: state.EmailAuth.loggedIn,
+});
+
+const mapDispatchToProps = null
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(DefaultLayout);
